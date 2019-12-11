@@ -50,7 +50,7 @@ paramMoveToNew <- function(param.id = "", param.code = "", debug.auth = FALSE, d
     
     # Generate auth header using specifications
     # auth.header <- genHeader(verb = "POST", resource.type = res.type, resource.link = res.link, stored.time = ms.date.string, debug = debug.auth)
-    auth.header <- genHeader(verb = "POST", stored.time = ms.date.string, debug = debug.auth)
+    # auth.header <- genHeader(verb = "POST", stored.time = ms.date.string, debug = debug.auth)
     
     # Geneerate POST request
     raw.response <- POST(post.uri, add_headers(.headers = c("x-ms-version" = "2017-02-22", "x-ms-date" = ms.date.string, "Content-Type" = "application/json")), body = json.body, encode = "json", verbose())

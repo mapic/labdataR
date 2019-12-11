@@ -1,7 +1,7 @@
 #' POST a HTTP to Azure Functions, in order to clean up parameters in Labdata
 #' 
 #' @param param.id The ID of the parameter you wish to move. Required.
-#' @param param.code The laboratory parameter code of the parameter you wish to move. Required.
+#' @param param.json The JSON of the parameter changes you wish to make. Required.
 #' @param debug.auth Logical value for getting verbose output of auth header being constructed. Defaults to false.
 #' @param debug.query Logical value for getting verbose output of HTTP response, printing all headers. Defaults to false.
 #' @param content.response Logical value to determine whether to retrieve full response or just the documents
@@ -9,9 +9,9 @@
 #' @keywords labdata parameter move new azure function post
 #' @export
 #' @examples
-#' labdataMoveParameter(param.id = "abc", param.code = "123", debug.query = TRUE)
+#' labdataUpdateParameter(param.id = 'abc', param.json = '{"name" : "new-name"}', debug.query = TRUE)
 
-labdataMoveParameter <- function(param.id = "", param.code = "", param.to.id = "", debug.auth = FALSE, debug.query = FALSE, content.response = TRUE) {
+labdataUpdateParameter <- function(param.id = "", param.json = "", debug.auth = FALSE, debug.query = FALSE, content.response = TRUE) {
 
     require(digest)
     require(base64enc)
@@ -29,18 +29,13 @@ labdataMoveParameter <- function(param.id = "", param.code = "", param.to.id = "
     post.uri  <- paste0(envLabdata$uri, "?code=", envLabdata$key)
 
     # type of operation
-    if (param.to.id == "") {
-        operation <- "move-to-new"
-    } else {
-        operation <- "move-to-existing"
-    }
-
+    operation <- "update-param"
+    
     # JSON body as list
     json.body <- list(
         operation = operation,
         param_id = param.id,
-        param_code = param.code,
-        param_to_id = param.to.id
+        param_json = param.json
     )
 
     # Geneerate POST request

@@ -30,7 +30,7 @@ param.to.id <- "param_id"   # Code of NGI parameter to move to, eg. c824e2e6-26d
 # EITHER move existing ALS/EF parameter to a new NGI parameter
 data <- labdataMoveParameter(param.id = param.id, param.code = param.code, debug.auth = TRUE, debug.query = TRUE)
 
-# OR move existing ALS/EF parameter to an existing NGI parameter
+# OR move existing ALS/EF parameter to an existing NGI parameter (when adding param.to.id argument)
 # (comment out one of these two data lines)
 data <- labdataMoveParameter(param.id = param.id, param.code = param.code, param.to.id = param.to.id, debug.auth = TRUE, debug.query = TRUE)
 

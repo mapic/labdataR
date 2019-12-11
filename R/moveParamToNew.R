@@ -9,9 +9,9 @@
 #' @keywords labdata parameter move new azure function post
 #' @export
 #' @examples
-#' paramMoveToNew(param.id = "abc", param.code = "123", debug.query = TRUE)
+#' moveParamToNew(param.id = "abc", param.code = "123", debug.query = TRUE)
 
-paramMoveToNew <- function(param.id = "", param.code = "", debug.auth = FALSE, debug.query = FALSE, content.response = TRUE) {
+moveParamToNew <- function(param.id = "", param.code = "", debug.auth = FALSE, debug.query = FALSE, content.response = TRUE) {
 
     require(digest)
     require(base64enc)

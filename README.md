@@ -9,6 +9,12 @@ install_github('mapic/labdataR')
 ## Usage
 
 ```R
+
+library(labdataR)
+cl <- config::get("labdata") # fra config.yml
+
+# ...
+
 # authenticate with azure function key and uri
 labdataAuth(cl$key, cl$uri)
 

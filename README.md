@@ -5,6 +5,7 @@ R library for use with Azure Functions.
 ## Installation
 
 ```R
+library('devtools')
 install_github('mapic/labdataR')
 ```
 

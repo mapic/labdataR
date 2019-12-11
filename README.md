@@ -1,6 +1,6 @@
 # labdataR
 
-R library for use with Azure Functions. Supported by [NGI.no](https://ngi.no).
+R library for use with Azure Functions. 
 
 ## Installation
 
@@ -34,3 +34,10 @@ result <- jsonlite::prettify(jsonlite::toJSON(data, auto_unbox = TRUE), 4)
 # return results
 return(result)
 ```
+
+## License
+[MIT License](https://github.com/mapic/labdataR/blob/master/LICENSE)
+
+Supported by [NGI.no](https://ngi.no).
+
+Based on work by [aaron2012r2](https://github.com/aaron2012r2/cosmosR).

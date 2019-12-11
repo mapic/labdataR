@@ -13,7 +13,6 @@ install_github('mapic/labdataR')
 
 ### Move parameter to new or existing parameter
 ```R
-
 # import library
 library(labdataR)
 
@@ -39,6 +38,33 @@ result <- jsonlite::prettify(jsonlite::toJSON(data, auto_unbox = TRUE), 4)
 
 # return results
 return(result)
+```
+
+### Update parameter
+```R
+# import library
+library(labdataR)
+
+# get config from config.yml
+cl <- config::get("labdata")
+
+# auth with azure fn
+labdataAuth(cl$key, cl$uri)
+
+# set arguments
+param.id <- "param_id"                  # ID of parameter, eg. c824e2e6-26de-44c0-beee-38c309319b7a
+param.json <- '{"name" : "new-name"}'   # JSON of keys to update
+
+# move parameter to a new parameter, and update all laborders
+data <- labdataUpdateParameter(param.id = param.id, param.json = param.json)
+
+# json prettify results
+result <- jsonlite::prettify(jsonlite::toJSON(data, auto_unbox = TRUE), 4)
+
+# return results
+return(result)
+
+
 ```
 
 ## License

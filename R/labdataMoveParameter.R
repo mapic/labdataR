@@ -11,7 +11,7 @@
 #' @examples
 #' moveParamToNew(param.id = "abc", param.code = "123", debug.query = TRUE)
 
-moveParamToNew <- function(param.id = "", param.code = "", debug.auth = FALSE, debug.query = FALSE, content.response = TRUE) {
+labdataMoveParameter <- function(param.id = "", param.code = "", param.to.id = "", debug.auth = FALSE, debug.query = FALSE, content.response = TRUE) {
 
     require(digest)
     require(base64enc)
@@ -28,14 +28,19 @@ moveParamToNew <- function(param.id = "", param.code = "", debug.auth = FALSE, d
     # Create POST URI for posting query to collection
     post.uri  <- paste0(envLabdata$uri, "?code=", envLabdata$key)
 
-    # name of operations
-    operation <- "move-to-new"
+    # type of operation
+    if (param.to.id == "") {
+        operation <- "move-to-new"
+    } else {
+        operation <- "move-to-existing"
+    }
 
     # JSON body as list
     json.body <- list(
         operation = operation,
         param_id = param.id,
-        param_code = param.code
+        param_code = param.code,
+        param_to_id = param.to.id
     )
 
     # Geneerate POST request

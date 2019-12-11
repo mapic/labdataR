@@ -10,6 +10,7 @@ install_github('mapic/labdataR')
 
 ## Usage
 
+### Move parameter to new or existing parameter
 ```R
 
 # import library
@@ -22,11 +23,16 @@ cl <- config::get("labdata")
 # authenticate with azure function
 labdataAuth(cl$key, cl$uri)
 
-param.id <- "param_id"      # ID of parameter, eg. c824e2e6-26de-44c0-beee-38c309319b7a, id of parameter
+param.id <- "param_id"      # ID of parameter, eg. c824e2e6-26de-44c0-beee-38c309319b7a
 param.code <- "param_code"  # Code of EF/ALS parameter to be moved, eg. Z001CY2X 
+param.to.id <- "param_id"   # Code of NGI parameter to move to, eg. c824e2e6-26de-44c0-beee-38c309319b7a
 
-# move existing ALS/EF parameter to a new NGI parameter
-data <- moveParamToNew(param.id, param.code, debug.auth = TRUE, debug.query = TRUE)
+# EITHER move existing ALS/EF parameter to a new NGI parameter
+data <- labdataMoveParameter(param.id, param.code, debug.auth = TRUE, debug.query = TRUE)
+
+# OR move existing ALS/EF parameter to an existing NGI parameter
+# (comment out one of these two data lines)
+data <- labdataMoveParameter(param.id = param.id, parma.code = param.code, parma.to.id = param.to.id, param debug.auth = TRUE, debug.query = TRUE)
 
 # json prettify results
 result <- jsonlite::prettify(jsonlite::toJSON(data, auto_unbox = TRUE), 4)

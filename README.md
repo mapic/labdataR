@@ -1,6 +1,6 @@
 # labdataR
 
-R library for use with Azure Functions. Supported by NGI.no.
+R library for use with Azure Functions. Supported by [NGI.no](https://ngi.no).
 
 ## Installation
 

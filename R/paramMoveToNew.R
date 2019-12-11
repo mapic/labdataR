@@ -28,8 +28,12 @@ paramMoveToNew <- function(param.id = "", param.code = "", debug.auth = FALSE, d
     # Create POST URI for posting query to collection
     post.uri  <- paste0(envLabdata$uri, "?code=", envLabdata$key)
 
+    # name of operations
+    operation <- "move-to-new"
+
     # JSON body as list
     json.body <- list(
+        operation = operation,
         param_id = param.id,
         param_code = param.code
     )

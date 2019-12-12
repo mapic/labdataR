@@ -2,5 +2,6 @@
 
 export(labdataMoveParameter)
 export(labdataUpdateParameter)
+export(labdataMarkVerified)
 export(labdataAuth)
 export(readContent)

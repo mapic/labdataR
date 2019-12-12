@@ -81,7 +81,7 @@ param.human_verified <- "true"      # Boolean. Default true. Can be "true", "Tru
 # auth with azure fn
 labdataAuth(cl$key, cl$uri)
 
-# move parameter to a new parameter, and update all laborders
+# mark parameter as human_verified = true/false 
 data <- labdataMarkVerified(param.id = param.id, param.code = param.code, param.human_verified = param.human_verified, debug.auth = TRUE, debug.query = TRUE)
 
  # json prettify results

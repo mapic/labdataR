@@ -10,9 +10,9 @@
 #' @keywords labdata parameter move new azure function post
 #' @export
 #' @examples
-#' labdataUpdateParameter(param.id = 'abc', param.json = '{"name" : "new-name"}', debug.query = TRUE)
+#' labdataMarkVerified(param.id = 'abc', param.code = 'A030', param.human_verified = 'true', debug.query = TRUE)
 
-labdataUpdateParameter <- function(param.id = "", param.code = "", param.human_verified = "true", debug.auth = FALSE, debug.query = FALSE, content.response = TRUE) {
+labdataMarkVerified <- function(param.id = "", param.code = "", param.human_verified = "true", debug.auth = FALSE, debug.query = FALSE, content.response = TRUE) {
 
     require(digest)
     require(base64enc)

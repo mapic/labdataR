@@ -82,7 +82,7 @@ param.human_verified <- "true"      # Boolean. Default true. Can be "true", "Tru
 labdataAuth(cl$key, cl$uri)
 
 # mark parameter as human_verified = true/false 
-data <- labdataMarkVerified(param.id = param.id, param.code = param.code, param.human_verified = param.human_verified, debug.auth = TRUE, debug.query = TRUE)
+data <- labdataMarkVerified(param.id = param.id, param.code = param.code, param.human_verified = param.human_verified)
 
  # json prettify results
 result <- jsonlite::prettify(jsonlite::toJSON(data, auto_unbox = TRUE), 4)
